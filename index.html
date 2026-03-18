@@ -1,12 +1,408 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="app.js"></script>
+    <meta name="description" content="Aprende FastAPI, n8n, Nginx y Gunicorn desde cero.">
+    <meta name="author" content="Isaac Esteban Haro Torres">
+    <title>🚀 FastAPI & n8n Desde Cero - Guía Completa</title>
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-    
+    <header class="header">
+        <nav class="navbar">
+            <div class="container">
+                <a href="#" class="logo">🚀 FastAPI & n8n</a>
+                <ul class="nav-menu">
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#temas">Temas</a></li>
+                    <li><a href="#contenido">Contenido</a></li>
+                    <li><a href="#ejemplos">Ejemplos</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="inicio" class="hero">
+            <div class="container">
+                <h1>🚀 FastAPI & n8n Desde Cero</h1>
+                <p class="hero-subtitle">Aprende FastAPI, n8n, Nginx y Gunicorn</p>
+                <blockquote class="hero-quote">
+                    "FastAPI is a modern, fast, web framework for building APIs with Python."
+                </blockquote>
+                <a href="#temas" class="btn btn-primary">Explorar Temas</a>
+            </div>
+        </section>
+
+        <section id="temas" class="topics">
+            <div class="container">
+                <h2>📖 Temas del Curso</h2>
+                <p class="topics-intro">Haz clic en cualquier tema para ver el contenido detallado</p>
+                
+                <div class="topics-grid">
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <span class="topic-icon">📌</span>
+                            <h3>Módulo 1: FastAPI</h3>
+                        </div>
+                        <ul class="topic-list">
+                            <li><a href="#tema1-1">Introducción a FastAPI</a></li>
+                            <li><a href="#tema1-2">Instalación</a></li>
+                            <li><a href="#tema1-3">Primer endpoint</a></li>
+                            <li><a href="#tema1-4">Path parameters</a></li>
+                        </ul>
+                        <a href="#tema1-1" class="btn-topic">Ver tema →</a>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <span class="topic-icon">⚙️</span>
+                            <h3>Módulo 2: n8n</h3>
+                        </div>
+                        <ul class="topic-list">
+                            <li><a href="#tema2-1">¿Qué es n8n?</a></li>
+                            <li><a href="#tema2-2">Instalación n8n</a></li>
+                            <li><a href="#tema2-3">Workflows básicos</a></li>
+                            <li><a href="#tema2-4">Integraciones</a></li>
+                        </ul>
+                        <a href="#tema2-1" class="btn-topic">Ver tema →</a>
+                    </div>
+
+                    <div class="topic-card">
+                        <div class="topic-header">
+                            <span class="topic-icon">🚀</span>
+                            <h3>Módulo 3: Nginx & Gunicorn</h3>
+                        </div>
+                        <ul class="topic-list">
+                            <li><a href="#tema3-1">Introducción a Nginx</a></li>
+                            <li><a href="#tema3-2">Configurar Nginx</a></li>
+                            <li><a href="#tema3-3">Gunicorn WSGI</a></li>
+                            <li><a href="#tema3-4">Deploy producción</a></li>
+                        </ul>
+                        <a href="#tema3-1" class="btn-topic">Ver tema →</a>
+                    </div>
+                </div>
+
+                <div class="topic-content">
+                    <div class="content-detail" id="tema1-1">
+                        <h3>📌 Introducción a FastAPI</h3>
+                        <div class="content-body">
+                            <p><strong>FastAPI</strong> es un framework web moderno para construir APIs con Python 3.7+.</p>
+                            <h4>Ventajas:</h4>
+                            <ul>
+                                <li>Alto rendimiento (al nivel de NodeJS y Go)</li>
+                                <li>Documentación automática (Swagger UI)</li>
+                                <li>Validación de datos con Pydantic</li>
+                                <li>Soporte para async/await</li>
+                            </ul>
+                            <div class="info-box">
+                                <strong>💡 Dato curioso:</strong> FastAPI es uno de los frameworks más rápidos para Python.
+                            </div>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+                    <div class="content-detail" id="tema1-2">
+                        <h3>🔧 Instalación</h3>
+                        <div class="content-body">
+                            <pre><code># Instalar FastAPI y Uvicorn
+pip install fastapi uvicorn[standard]
+
+# Crear archivo main.py
+# Ejecutar servidor
+uvicorn main:app --reload
+
+# En producción
+uvicorn main:app --host 0.0.0.0 --port 8000</code></pre>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+                    <div class="content-detail" id="tema1-3">
+                        <h3>🌐 Primer Endpoint</h3>
+                        <div class="content-body">
+                            <pre><code>from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def root():
+    return {"message": "Hola Mundo"}
+
+@app.get("/items/{item_id}")
+async def read_item(item_id: int):
+    return {"item_id": item_id}</code></pre>
+                            <h4>Probar:</h4>
+                            <pre><code># Abrir navegador
+http://localhost:8000/docs
+
+# Swagger UI automático</code></pre>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+                    <div class="content-detail" id="tema1-4">
+                        <h3>📍 Path Parameters</h3>
+                        <div class="content-body">
+                            <pre><code>@app.get("/users/{user_id}")
+async def get_user(user_id: int):
+    return {"user_id": user_id}
+
+@app.get("/files/{file_path:path}")
+async def read_file(file_path: str):
+    return {"file": file_path}</code></pre>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+                    <div class="content-detail" id="tema2-1">
+                        <h3>🤖 ¿Qué es n8n?</h3>
+                        <div class="content-body">
+                            <p><strong>n8n</strong> es una herramienta de automatización de workflows.</p>
+                            <h4>Características:</h4>
+                            <ul>
+                                <li>Node-based workflow automation</li>
+                                <li>200+ integraciones</li>
+                                <li>Self-hostable</li>
+                                <li>Gratuito para uso personal</li>
+                            </ul>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+                    <div class="content-detail" id="tema2-2">
+                        <h3>🔧 Instalación n8n</h3>
+                        <div class="content-body">
+                            <pre><code># Con npm
+npm install n8n -g
+n8n start
+
+# Con Docker
+docker run -it --rm \
+  --name n8n \
+  -p 5678:5678 \
+  n8nio/n8n</code></pre>
+                            <h4>Acceder:</h4>
+                            <pre><code>http://localhost:5678</code></pre>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+                    <div class="content-detail" id="tema2-3">
+                        <h3>📋 Workflows Básicos</h3>
+                        <div class="content-body">
+                            <h4>Ejemplo: Webhook a Email</h4>
+                            <ol>
+                                <li>Agregar nodo Webhook</li>
+                                <li>Configurar método HTTP</li>
+                                <li>Agregar nodo Email</li>
+                                <li>Conectar nodos</li>
+                                <li>Activar workflow</li>
+                            </ol>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+                    <div class="content-detail" id="tema2-4">
+                        <h3>🔌 Integraciones</h3>
+                        <div class="content-body">
+                            <h4>Integraciones populares:</h4>
+                            <ul>
+                                <li>Slack, Discord</li>
+                                <li>Google Sheets, Airtable</li>
+                                <li>GitHub, GitLab</li>
+                                <li>Twilio, SendGrid</li>
+                            </ul>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+                    <div class="content-detail" id="tema3-1">
+                        <h3>🌐 Introducción a Nginx</h3>
+                        <div class="content-body">
+                            <p><strong>Nginx</strong> es un servidor web y proxy reverso.</p>
+                            <h4>Usos comunes:</h4>
+                            <ul>
+                                <li>Load balancing</li>
+                                <li>Proxy reverso</li>
+                                <li>Caché HTTP</li>
+                                <li>SSL/TLS termination</li>
+                            </ul>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+                    <div class="content-detail" id="tema3-2">
+                        <h3>⚙️ Configurar Nginx</h3>
+                        <div class="content-body">
+                            <pre><code># /etc/nginx/sites-available/miapp
+server {
+    listen 80;
+    server_name midominio.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    location /static/ {
+        alias /var/www/static/;
+    }
+}</code></pre>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+                    <div class="content-detail" id="tema3-3">
+                        <h3>🦄 Gunicorn WSGI</h3>
+                        <div class="content-body">
+                            <pre><code># Instalar
+pip install gunicorn
+
+# Ejecutar FastAPI con Uvicorn workers
+gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker
+
+# Con bind específico
+gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker --bind 0.0.0.0:8000</code></pre>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+                    <div class="content-detail" id="tema3-4">
+                        <h3>🚀 Deploy Producción</h3>
+                        <div class="content-body">
+                            <h4>Arquitectura completa:</h4>
+                            <pre><code>Internet → Nginx (puerto 80/443)
+              ↓
+         Gunicorn (workers)
+              ↓
+        FastAPI app</code></pre>
+                            <h4>Systemd service:</h4>
+                            <pre><code>[Unit]
+Description=FastAPI App
+
+[Service]
+User=www-data
+WorkingDirectory=/var/www/miapp
+ExecStart=/usr/bin/gunicorn main:app -w 4 -k uvicorn.workers.UvicornWorker
+
+[Install]
+WantedBy=multi-user.target</code></pre>
+                        </div>
+                        <a href="#temas" class="btn btn-back">← Volver a temas</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contenido" class="content">
+            <div class="container">
+                <h2>📚 Contenido del Curso</h2>
+                <div class="modules">
+                    <div class="module">
+                        <h3>Módulo 1: FastAPI</h3>
+                        <ul>
+                            <li>Introducción a FastAPI</li>
+                            <li>Instalación</li>
+                            <li>Primer endpoint</li>
+                            <li>Path parameters</li>
+                        </ul>
+                        <a href="#temas" class="btn-module">Ir a temas →</a>
+                    </div>
+                    <div class="module">
+                        <h3>Módulo 2: n8n</h3>
+                        <ul>
+                            <li>¿Qué es n8n?</li>
+                            <li>Instalación n8n</li>
+                            <li>Workflows básicos</li>
+                            <li>Integraciones</li>
+                        </ul>
+                        <a href="#temas" class="btn-module">Ir a temas →</a>
+                    </div>
+                    <div class="module">
+                        <h3>Módulo 3: Nginx & Gunicorn</h3>
+                        <ul>
+                            <li>Introducción a Nginx</li>
+                            <li>Configurar Nginx</li>
+                            <li>Gunicorn WSGI</li>
+                            <li>Deploy producción</li>
+                        </ul>
+                        <a href="#temas" class="btn-module">Ir a temas →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="ejemplos" class="examples">
+            <div class="container">
+                <h2>📝 Ejemplos Rápidos</h2>
+                <div class="code-block">
+                    <h3>FastAPI App</h3>
+                    <pre><code class="language-python">from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+async def root():
+    return {"message": "Hola Mundo"}</code></pre>
+                </div>
+                <div class="code-block">
+                    <h3>Nginx Config</h3>
+                    <pre><code class="language-nginx">server {
+    listen 80;
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+    }
+}</code></pre>
+                </div>
+            </div>
+        </section>
+
+        <section id="recursos" class="resources">
+            <div class="container">
+                <h2>📖 Recursos Adicionales</h2>
+                <div class="resource-grid">
+                    <div class="resource-card">
+                        <h4>Documentación</h4>
+                        <ul>
+                            <li><a href="https://fastapi.tiangolo.com/" target="_blank">FastAPI Docs</a></li>
+                            <li><a href="https://n8n.io/docs/" target="_blank">n8n Docs</a></li>
+                            <li><a href="https://nginx.org/en/docs/" target="_blank">Nginx Docs</a></li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Herramientas</h4>
+                        <ul>
+                            <li>Uvicorn</li>
+                            <li>Gunicorn</li>
+                            <li>Docker</li>
+                        </ul>
+                    </div>
+                    <div class="resource-card">
+                        <h4>Comunidades</h4>
+                        <ul>
+                            <li>FastAPI GitHub</li>
+                            <li>n8n Forum</li>
+                            <li>Stack Overflow</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contacto" class="contact">
+            <div class="container">
+                <h2>👨‍💻 Desarrollado por Isaac Esteban Haro Torres</h2>
+                <p class="contact-title">Ingeniero en Sistemas · Full Stack · Automatización · Data</p>
+                <div class="contact-info">
+                    <p>📧 Email: <a href="mailto:zackharo1@gmail.com">zackharo1@gmail.com</a></p>
+                    <p>📱 WhatsApp: 098805517</p>
+                    <p>💻 GitHub: <a href="https://github.com/ieharo1" target="_blank">github.com/ieharo1</a></p>
+                    <p>🌐 Portafolio: <a href="https://ieharo1.github.io/portafolio-isaac.haro/" target="_blank">ieharo1.github.io/portafolio-isaac.haro/</a></p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Isaac Esteban Haro Torres - Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
 </body>
 </html>
